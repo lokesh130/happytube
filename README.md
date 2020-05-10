@@ -6,3 +6,5 @@ After clonning do following
 To test it locally do following in terminal project directory
 
 npm run dev
+
+Before Deploying do "npm run build" inside client directory
