@@ -5,13 +5,16 @@ import axios from 'axios';
 import { USER_SERVER } from '../../../Config';
 import { withRouter } from 'react-router-dom';
 import { useSelector } from "react-redux";
+import {useAlert} from 'react-alert';
 
 function RightMenu(props) {
+  const alert=useAlert();
   const user = useSelector(state => state.user)
 
   const logoutHandler = () => {
     axios.get(`${USER_SERVER}/logout`).then(response => {
       if (response.status === 200) {
+        alert.show("user logged out successfully",{type:'success'});
         props.history.push("/login");
       } else {
         alert('Log Out Failed')
@@ -42,4 +45,3 @@ function RightMenu(props) {
 }
 
 export default withRouter(RightMenu);
-
