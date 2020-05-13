@@ -6,24 +6,26 @@ import moment from 'moment';
 import {useAlert} from 'react-alert';
 const { Title } = Typography;
 const { Meta } = Card;
-function LandingPage() {
 
-    const [Videos, setVideos] = useState([])
+
+function SubscriptionPage() {
+
+    const [Videos, setVideos] = useState([]);
     const alert = useAlert();
+
+    let variable = { userFrom : localStorage.getItem('userId')  }
+
+
     useEffect(() => {
-        axios.get('/api/video/getVideos')
+        axios.post('/api/video/getSubscriptionVideos', variable)
             .then(response => {
                 if (response.data.success) {
-                    console.log(response.data.videos)
                     setVideos(response.data.videos)
                 } else {
-                    alert.show('Failed to get Videos')
+                    alert.show('Failed to get subscription videos')
                 }
             })
     }, [])
-
-
-
 
 
     const renderCards = Videos.map((video, index) => {
@@ -61,14 +63,14 @@ function LandingPage() {
 
     return (
         <div style={{ width: '85%', margin: '3rem auto' }}>
-            <Title level={2} > Recommended </Title>
-            <hr />
+        <Title level={2} > Subscribed Videos </Title>
+        <hr />
 
-            <Row gutter={16}>
-                {renderCards}
-            </Row>
-        </div>
+        <Row gutter={16}>
+            {renderCards}
+        </Row>
+    </div>
     )
 }
 
-export default LandingPage
+export default SubscriptionPage

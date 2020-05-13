@@ -10,7 +10,10 @@ import Footer from "./views/Footer/Footer.js"
 import VerifyPage from "./views/VerifyPage/VerifyPage.js";
 import ForgotPassPage from "./views/ForgotPassPage/ForgotPassPage.js";
 import ForgotPassOtpPage from "./views/ForgotPassPage/ForgotPassOtpPage.js";
-import {Alert} from 'antd';
+import UploadVideoPage from "./views/UploadVideoPage/UploadVideoPage"
+import DetailVideoPage from "./views/DetailVideoPage/DetailVideoPage"
+import SubscriptionPage from "./views/SubscriptionPage/SubscriptionPage"
+
 
 function App() {
 
@@ -25,6 +28,9 @@ function App() {
           <Route exact path="/verify" component={Auth(VerifyPage, false)} />
           <Route exact path="/forgot_pass" component={Auth(ForgotPassPage, false)} />
           <Route exact path="/forgot_pass_otp" component={Auth(ForgotPassOtpPage, false)} />
+          <Route exact path="/video/upload" component={Auth(UploadVideoPage, true)} />
+          <Route exact path="/video/:videoId" component={Auth(DetailVideoPage, null)} />
+          <Route exact path="/subscription" component={Auth(SubscriptionPage, null)} />
         </Switch>
       </div>
       <Footer />

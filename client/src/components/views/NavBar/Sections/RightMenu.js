@@ -6,15 +6,15 @@ import { USER_SERVER } from '../../../Config';
 import { withRouter } from 'react-router-dom';
 import { useSelector } from "react-redux";
 import {useAlert} from 'react-alert';
+const Upload = require('../../../../assets/images/upload.png');
 
 function RightMenu(props) {
-  const alert=useAlert();
   const user = useSelector(state => state.user)
-
+  const alert = useAlert();
+  
   const logoutHandler = () => {
     axios.get(`${USER_SERVER}/logout`).then(response => {
       if (response.status === 200) {
-        alert.show("user logged out successfully",{type:'success'});
         props.history.push("/login");
       } else {
         alert('Log Out Failed')
@@ -36,6 +36,9 @@ function RightMenu(props) {
   } else {
     return (
       <Menu mode={props.mode}>
+        <Menu.Item key="create">
+          <a href="/video/upload"><img src={Upload} alt="Upload" /></a>
+        </Menu.Item>
         <Menu.Item key="logout">
           <a onClick={logoutHandler}>Logout</a>
         </Menu.Item>

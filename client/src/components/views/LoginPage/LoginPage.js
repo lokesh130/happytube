@@ -65,7 +65,7 @@ function LoginPage(props) {
 
             dispatch(loginUser(dataToSubmit,false))
               .then(response => {
-
+                  window.localStorage.setItem('userId', response.payload.userId);
                 alert.show('login via facebook successfully',{type:'success'});
                   props.history.push("/");
               })
@@ -79,7 +79,7 @@ function LoginPage(props) {
         else {
           dispatch(loginUser(dataToSubmit,false))
             .then(response => {
-
+                window.localStorage.setItem('userId', response.payload.userId);
               alert.show('login via facebook successfully',{type:'success'});
                 props.history.push("/");
             })
@@ -117,6 +117,7 @@ function LoginPage(props) {
 
           dispatch(loginUser(dataToSubmit,false))
             .then(response => {
+                window.localStorage.setItem('userId', response.payload.userId);
                 alert.show('login via google successfully',{type:'success'});
                 props.history.push("/");
             })
@@ -130,6 +131,7 @@ function LoginPage(props) {
       else {
         dispatch(loginUser(dataToSubmit,false))
           .then(response => {
+              window.localStorage.setItem('userId', response.payload.userId);
               alert.show('login via google successfully',{type:'success'});
               props.history.push("/");
           })

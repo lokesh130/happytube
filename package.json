@@ -1,7 +1,7 @@
 {
-  "name": "mern-boilerplate",
+  "name": "happytube",
   "version": "1.0.0",
-  "description": "mern boilerplate",
+  "description": "happytube",
   "main": "index.js",
   "engine": {
     "node": "10.16.0",
@@ -22,13 +22,16 @@
     "cors": "^2.8.5",
     "debug": "^4.1.1",
     "express": "^4.17.1",
+    "fluent-ffmpeg": "^2.1.2",
     "jsonwebtoken": "^8.5.1",
     "moment": "^2.24.0",
     "mongoose": "^5.4.20",
+    "multer": "^1.4.2",
     "nodemailer": "^6.4.6",
     "react-google-login": "^5.1.14",
     "react-redux": "^5.0.7",
     "saslprep": "^1.0.3",
+    "socket.io": "^2.2.0",
     "supports-color": "^7.1.0"
   },
   "devDependencies": {

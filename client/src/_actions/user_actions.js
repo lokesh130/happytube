@@ -78,7 +78,10 @@ export function auth(){
 
 export function logoutUser(){
     const request = axios.get(`${USER_SERVER}/logout`)
-    .then(response => response.data);
+    .then(response =>{
+      window.localStorage.removeItem('userId');
+      return response.data;
+    });
 
     return {
         type: LOGOUT_USER,
