@@ -31,7 +31,7 @@
     "react-google-login": "^5.1.14",
     "react-redux": "^5.0.7",
     "saslprep": "^1.0.3",
-    "socket.io": "^2.2.0",
+    "socket.io": "^2.5.0",
     "supports-color": "^7.1.0"
   },
   "devDependencies": {
